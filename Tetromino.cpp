@@ -14,7 +14,7 @@
 #include "Tetromino.h"
 #include "Tetrisbox.h"
 Tetromino::Tetromino(unsigned char iShape, const std::vector<std::vector<unsigned char>>& iMatrix, Tetrisbox* tetrisbox)
-	: rotation(0), shape(iShape), minos(tetromioShapes(iShape, tetrisbox->GetColumns() / 2, 1))
+	: rotation(0), shape(iShape), tetrisbox (tetrisbox), minos(tetromioShapes(iShape, tetrisbox->GetColumns() / 2, 1))
 {
 }
 
@@ -50,7 +50,9 @@ std::vector<Position> Tetromino::GetGhostMinos(std::vector<std::vector<unsigned 
 		TotalMovement ++;
 		for (Position& mino : minos)
 		{
-			if (tetrisbox->GetRows() == TotalMovement + mino.y)
+			if (tetrisbox->GetRows() == TotalMovement + mino.y) // Possibly Dangerous to set equal in the float
+				// What happened if the float value overflowed than the limit? - see what happen in the Mika Project.
+				// TODO:: Need to limit the epslion on the value. 
 			{
 				KeepFailling = false;
 				break;  
@@ -91,7 +93,7 @@ bool Tetromino::MoveDown(const std::vector<std::vector<unsigned char>>& iMatrix)
 	for (Position& mino : minos)
 	{
 		// hit the bottom
-		if (tetrisbox->GetRows() == 1 + mino.y)
+		if (tetrisbox->GetRows() == 1 + mino.y) // Same as the float problem. 
 		{
 			return 0;
 		}
@@ -142,15 +144,15 @@ void Tetromino::MoveRight(const std::vector<std::vector<unsigned char>>& iMatrix
 {
 	for (Position& mino : minos)
 	{
-		if (tetrisbox->GetColumns() == 0)
+		if (tetrisbox->GetColumns() == 1 + mino.x) // FUCK MATE HOW 
 		{
 			return; 
 		}
-		if (0 > mino.x)
+		if (0 > mino.y)
 		{
 			continue; 
 		}
-		if (0 < iMatrix[mino.x][mino.y])
+		if (0 < iMatrix[1 + mino.x][mino.y])
 		{
 			return;
 		}
@@ -168,7 +170,7 @@ void Tetromino::Rotate(bool Clockwise ,const std::vector<std::vector<unsigned ch
 	{
 		unsigned char NextRotation;
 
-		std::vector<Position> Minos;
+		std::vector<Position> CurrentMinos = minos;
 
 		if (0 == Clockwise)
 		{
@@ -176,7 +178,7 @@ void Tetromino::Rotate(bool Clockwise ,const std::vector<std::vector<unsigned ch
 		}
 		else
 		{
-			NextRotation = (1 + rotation ) % 4;
+			NextRotation = (1 + rotation) % 4;
 		}
 		// if the i shape
 		if (shape == 0)

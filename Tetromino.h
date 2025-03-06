@@ -19,16 +19,17 @@ class Tetromino
 {
 private:
 	// Variables
+	Tetrisbox* tetrisbox;
 	unsigned char rotation;
 	unsigned char shape;
 
 	std::vector<Position> minos;
-	Tetrisbox* tetrisbox;
 	// References
 	
 public: 
 	// Constructors
-	Tetromino(unsigned char iShape, const std::vector<std::vector<unsigned char>>& iMatrix , Tetrisbox* tetrisbox); // can I set it as 2fVector? 
+	Tetromino(unsigned char iShape, const std::vector<std::vector<unsigned char>>& iMatrix , Tetrisbox* tetrisbox);
+	// Check the SF-003 Note. 
 
 	// Destructors 
 	~Tetromino(); 
