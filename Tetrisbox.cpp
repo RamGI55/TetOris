@@ -7,10 +7,12 @@
 //	Latest Modify : 							//
 // -------------------------------------------  //
 
-// DESC : 
+// DESC :
+
 
 
 #include "Tetrisbox.h"
+#include <iostream>
 
 void Tetrisbox::InitVariables()
 {
@@ -23,8 +25,6 @@ void Tetrisbox::InitTetrisbox()
     this->tetrisboxes = new sf::RectangleShape(sf::Vector2f((BoxParameter * Multiplier) - 3, (BoxParameter * Multiplier) - 3));
 }
 // vecotr2f 
-
-
 
 Tetrisbox::Tetrisbox(sf::RenderWindow* window)
 {
@@ -60,6 +60,10 @@ float Tetrisbox::GetRows() const
 
 void Tetrisbox::GetTetrisBox()
 {
+	if (!window || !tetrisboxes)
+	{
+		 std::cout << "Unable to generate the tetrisbox." << std::endl; 
+	}
 	for (unsigned char a = 0; a < Columns; a++)
 	{
 		for (unsigned char b = 0; b < Rows; b++)

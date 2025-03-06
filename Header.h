@@ -1,4 +1,4 @@
-/* 
+
 
 // -------------------------------------------	//
 //	Project : TetOris							//
@@ -10,7 +10,6 @@
 
 // DESC : Core minimum headers to run the game. 
 
-*/
 #pragma once 
 #include <Windows.h>
 #include <SFML/Window.hpp>

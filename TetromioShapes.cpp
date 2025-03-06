@@ -4,16 +4,12 @@
 //	Name : TetrominoShapes.hpp					//
 //	Written by : Ram (Hyunsoo Park)				//
 //	Generated Date : Feb 05, 2025				//
-//	Latest Modify : 							//
+//	Latest Modify : Mar 06, 2025				//
 // -------------------------------------------  //
 
-// DESC : 
-
-
-
+// DESC : brought teterimono shape information
 
 #include <vector>
-
 #include "Header.h"
 #include "TetromioShapes.h"
 
@@ -65,8 +61,8 @@ std::vector<Position> tetromioShapes(unsigned char iShape, unsigned char ix, uns
 		case 4:
 		{
 			gettetromino[0] = { 0, 0 };
-			gettetromino[1] = { 0, -1 };
-			gettetromino[2] = { -1, -1 };
+			gettetromino[1] = { 1, -1 };
+			gettetromino[2] = { 0, -1 };
 			gettetromino[3] = { -1, 0 };
 			break;
 		}
