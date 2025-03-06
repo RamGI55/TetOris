@@ -13,8 +13,8 @@
 
 #include "Tetromino.h"
 #include "Tetrisbox.h"
-Tetromino::Tetromino(unsigned char iShape, const std::vector<std::vector<unsigned char>>& iMatrix, Tetrisbox tetrisbox)
-	: rotation(0), shape(iShape), minos(tetromioShapes(iShape, tetrisbox.GetColumns() / 2, 1))
+Tetromino::Tetromino(unsigned char iShape, const std::vector<std::vector<unsigned char>>& iMatrix, Tetrisbox* tetrisbox)
+	: rotation(0), shape(iShape), minos(tetromioShapes(iShape, tetrisbox->GetColumns() / 2, 1))
 {
 }
 
@@ -28,7 +28,7 @@ unsigned char Tetromino::GetShape()
 	return shape;
 }
 
-void Tetromino::UpdateMatrix(std::vector<std::vector<unsigned char>>& iMatrix, Tetrisbox tetrisbox)
+void Tetromino::UpdateMatrix(std::vector<std::vector<unsigned char>>& iMatrix)
 {
 		for (Position& mino : minos)
 		{
@@ -40,7 +40,7 @@ void Tetromino::UpdateMatrix(std::vector<std::vector<unsigned char>>& iMatrix, T
 		}
 }
 
-std::vector<Position> Tetromino::GetGhostMinos(std::vector<std::vector<unsigned char>> iMatrix, Tetrisbox tetrisbox)
+std::vector<Position> Tetromino::GetGhostMinos(std::vector<std::vector<unsigned char>> iMatrix)
 {
 	bool KeepFailling = true;
 	unsigned char TotalMovement = 0;
@@ -50,7 +50,7 @@ std::vector<Position> Tetromino::GetGhostMinos(std::vector<std::vector<unsigned 
 		TotalMovement ++;
 		for (Position& mino : minos)
 		{
-			if (tetrisbox.GetRows() == TotalMovement + mino.y)
+			if (tetrisbox->GetRows() == TotalMovement + mino.y)
 			{
 				KeepFailling = false;
 				break;  
@@ -85,13 +85,13 @@ void Tetromino::FlipTetromino()
 
 // you should think to bring delta time on the movement cause it would works varies by the speed of computer. 
 // likewise old shitty dady computer will goes slow, in the based gaming computers the tetromino goes fucking too fast. 
-bool Tetromino::MoveDown(const std::vector<std::vector<unsigned char>>& iMatrix, Tetrisbox tetrisbox)
+bool Tetromino::MoveDown(const std::vector<std::vector<unsigned char>>& iMatrix)
 {
 	 
 	for (Position& mino : minos)
 	{
 		// hit the bottom
-		if (tetrisbox.GetRows() == 1 + mino.y)
+		if (tetrisbox->GetRows() == 1 + mino.y)
 		{
 			return 0;
 		}
@@ -112,7 +112,7 @@ bool Tetromino::MoveDown(const std::vector<std::vector<unsigned char>>& iMatrix,
 	
 }
 
-void Tetromino::MoveLeft(const std::vector<std::vector<unsigned char>>& iMatrix, Tetrisbox tetrisbox)
+void Tetromino::MoveLeft(const std::vector<std::vector<unsigned char>>& iMatrix)
 {
 	for (Position& mino : minos)
 	{
@@ -138,11 +138,11 @@ void Tetromino::MoveLeft(const std::vector<std::vector<unsigned char>>& iMatrix,
 	} 
 }
 
-void Tetromino::MoveRight(const std::vector<std::vector<unsigned char>>& iMatrix, Tetrisbox tetrisbox)
+void Tetromino::MoveRight(const std::vector<std::vector<unsigned char>>& iMatrix)
 {
 	for (Position& mino : minos)
 	{
-		if (tetrisbox.GetColumns() == 0)
+		if (tetrisbox->GetColumns() == 0)
 		{
 			return; 
 		}
@@ -161,7 +161,7 @@ void Tetromino::MoveRight(const std::vector<std::vector<unsigned char>>& iMatrix
 	}
 }
 
-void Tetromino::Rotate(bool Clockwise ,const std::vector<std::vector<unsigned char>>& iMatrix, Tetrisbox tetrisbox)
+void Tetromino::Rotate(bool Clockwise ,const std::vector<std::vector<unsigned char>>& iMatrix)
 {
 	// rotating the tetroris box.
 	if (shape != 4) // if the shape isn't the 0 shape. 
@@ -247,9 +247,9 @@ void Tetromino::Rotate(bool Clockwise ,const std::vector<std::vector<unsigned ch
 	}
 }
 
-void Tetromino::HardDrop(const std::vector<std::vector<unsigned char>>& iMatrix, Tetrisbox tetrisbox)
+void Tetromino::HardDrop(const std::vector<std::vector<unsigned char>>& iMatrix)
 {
-	minos = GetGhostMinos(iMatrix, tetrisbox);
+	minos = GetGhostMinos(iMatrix);
 }
 
 
