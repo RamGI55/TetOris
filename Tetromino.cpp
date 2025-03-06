@@ -9,7 +9,7 @@
 
 // DESC : brought teterimono information from TetromioShapes.h 
 //		print colour on the tetris box 
-//		then drop it automatically in every tick (timeevent) 
+//		then drop it automatically in every tick (timeevent)
 
 #include "Tetromino.h"
 #include "Tetrisbox.h"
@@ -244,7 +244,7 @@ void Tetromino::Rotate(bool Clockwise ,const std::vector<std::vector<unsigned ch
 				}
 			}
 		}
-		// Wall kick, check the wall either side of the block, block the turne
+		// TODO:: Wall kick, check the wall either side of the block, block the turn.
 		// if the wall was either side. 
 	}
 }
