@@ -1,3 +1,17 @@
+
+// -------------------------------------------	//
+//	Project : TetOris							//
+//	Name : TetrominoShapes.hpp					//
+//	Written by : Ram (Hyunsoo Park)				//
+//	Generated Date : Feb 05, 2025				//
+//	Latest Modify : 							//
+// -------------------------------------------  //
+
+// DESC : 
+
+
+
+
 #include <vector>
 
 #include "Header.h"

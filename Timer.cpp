@@ -1,3 +1,15 @@
+
+// -------------------------------------------	//
+//	Project : TetOris							//
+//	Name : Timer.cpp					        //
+//	Written by : Ram (Hyunsoo Park)				//
+//	Generated Date : Feb 05, 2025				//
+//	Latest Modify : 							//
+// -------------------------------------------  //
+
+// DESC : 
+
+
 #include "Timer.h"
 
 Timer::Timer()

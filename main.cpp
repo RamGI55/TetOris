@@ -1,10 +1,14 @@
-/* 
 
-Used SFML 3.0 
-Fan game of the Tetoris, 
-Copyright is reserved t
-Made by Ram. 
-*/
+// -------------------------------------------	//
+//	Project : TetOris							//
+//	Name : main.cpp								//
+//	Written by : Ram (Hyunsoo Park)				//
+//	Generated Date : Feb 05, 2025				//
+//	Latest Modify : 							//
+// -------------------------------------------  //
+
+// DESC :  
+
 #include <iostream>
 #include "Timer.h"
 #include "GameState.h"

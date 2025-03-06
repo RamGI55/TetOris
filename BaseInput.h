@@ -1,13 +1,20 @@
+
+// -------------------------------------------	//
+//	Project : TetOris							//
+//	Name : BaseInput.h							//
+//	Written by : Ram (Hyunsoo Park)				//
+//	Generated Date : Feb 05, 2025				//
+//	Latest Modify : 							//
+// -------------------------------------------  //
+
+// DESC : 
+
 #pragma once
+
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 
-// using wasd or keyboard movement 
-// filp and drop 
-// keyboard or mouse 
-// menu - 
-// -- 
 class BaseInput
 {
 private:

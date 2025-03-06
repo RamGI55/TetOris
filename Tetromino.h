@@ -1,3 +1,18 @@
+
+// -------------------------------------------	//
+//	Project : TetOris							//
+//	Name : Tetromino.h							//
+//	Written by : Ram (Hyunsoo Park)				//
+//	Generated Date : Feb 05, 2025				//
+//	Latest Modify : 							//
+// -------------------------------------------  //
+
+// DESC : brought teterimono information from TetromioShapes.h 
+//		print colour on the tetris box 
+//		then drop it automatically in every tick (timeevent) 
+
+
+
 #pragma once
 #include "GameState.h"
 #include <vector>

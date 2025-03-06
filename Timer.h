@@ -1,3 +1,16 @@
+
+// -------------------------------------------	//
+//	Project : TetOris							//
+//	Name : Timer.h								//
+//	Written by : Ram (Hyunsoo Park)				//
+//	Generated Date : Feb 05, 2025				//
+//	Latest Modify : 							//
+// -------------------------------------------  //
+
+// DESC : 
+
+
+
 #pragma once
 #include"Header.h"
 #include<profileapi.h>

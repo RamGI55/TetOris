@@ -1,12 +1,18 @@
-/* 
-	brought teterimono information from TetromioShapes.h 
-	
-	print colour on the tetris box 
 
-	then drop it automatically in every tick (timeevent) 
+// -------------------------------------------	//
+//	Project : TetOris							//
+//	Name : Tetromino.cpp						//
+//	Written by : Ram (Hyunsoo Park)				//
+//	Generated Date : Feb 05, 2025				//
+//	Latest Modify : 							//
+// -------------------------------------------  //
+
+// DESC : brought teterimono information from TetromioShapes.h 
+//		print colour on the tetris box 
+//		then drop it automatically in every tick (timeevent) 
 
 
-*/
+
 
 #include "Tetromino.h"
 

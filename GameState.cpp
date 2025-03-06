@@ -1,3 +1,15 @@
+
+
+// -------------------------------------------	//
+//	Project : TetOris							//
+//	Name : GameState.cpp						//
+//	Written by : Ram (Hyunsoo Park)				//
+//	Generated Date : Feb 05, 2025				//
+//	Latest Modify : 							//
+// -------------------------------------------  //
+
+// DESC : 
+
 #include "GameState.h"
 #include "Tetrisbox.h"
 #include <iostream>

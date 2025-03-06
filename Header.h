@@ -1,5 +1,15 @@
 /* 
 
+// -------------------------------------------	//
+//	Project : TetOris							//
+//	Name : Header.h								//
+//	Written by : Ram (Hyunsoo Park)				//
+//	Generated Date : Feb 05, 2025				//
+//	Latest Modify : 							//
+// -------------------------------------------  //
+
+// DESC : Core minimum headers to run the game. 
+
 */
 #pragma once 
 #include <Windows.h>

@@ -1,3 +1,16 @@
+
+// -------------------------------------------	//
+//	Project : TetOris							//
+//	Name : BaseInput.cpp					    //
+//	Written by : Ram (Hyunsoo Park)				//
+//	Generated Date : Feb 05, 2025				//
+//	Latest Modify : 							//
+// -------------------------------------------  //
+
+// DESC : 
+
+
+
 #include "BaseInput.h"
 
 bool BaseInput::bGamepadConnected()
