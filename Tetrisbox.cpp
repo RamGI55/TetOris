@@ -74,3 +74,19 @@ void Tetrisbox::GetTetrisBox()
 		}
 	}
 }
+
+void Tetrisbox::FillTheColour()
+{
+	for (unsigned char a = 0; a < Columns; a++)
+	{
+		for (unsigned char b = 0; b < Rows; b++)
+		{
+			tetrisboxes->setFillColor(sf::Color::Red);
+			tetrisboxes->setPosition(sf::Vector2f(static_cast<float>(BoxParameter * a), static_cast<float>(BoxParameter * b)));
+			tetrisboxes->setSize(sf::Vector2f(BoxParameter -1, BoxParameter-1 ));
+
+			window->draw(*tetrisboxes);
+		}
+	}
+	
+}

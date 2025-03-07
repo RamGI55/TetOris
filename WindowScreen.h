@@ -45,5 +45,5 @@ public:
 	void pollEvents();
 	void update();
 	// Render must be refactored to other class -> if you'd like to make a menu. 
-	void render(); 
+	void render();
 };

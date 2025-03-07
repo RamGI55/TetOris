@@ -39,4 +39,5 @@ public:
 
     // Functions
     void GetTetrisBox();
+    void FillTheColour(); 
 };

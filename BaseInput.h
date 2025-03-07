@@ -15,6 +15,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 
+#include "Tetrisbox.h"
+
 class BaseInput
 {
 private:
@@ -25,6 +27,8 @@ public:
 	int MoveRight(); 
 	bool bPressSpacebar(); 
 	bool bPressSwitch();
+	void click();
+	Tetrisbox* Tetrisbox;
 
 
 };

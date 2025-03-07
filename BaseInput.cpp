@@ -13,6 +13,11 @@
 
 #include "BaseInput.h"
 
+#include <iostream>
+
+#include "Tetrisbox.h"
+#include "Tetromino.h"
+
 bool BaseInput::bGamepadConnected()
 {
 	if (sf::Joystick::isConnected(0)) // this index count works as how many people connected.
@@ -63,6 +68,14 @@ bool BaseInput::bPressSwitch()
 		return true; 
 	}
 	return false; 
+}
+
+void BaseInput::click()
+{
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+	{
+		Tetrisbox->FillTheColour();
+	}
 }
 
 

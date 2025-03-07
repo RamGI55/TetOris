@@ -24,7 +24,7 @@ int main()
 	/*sf::Event event;*/
 	Timer time;
 	//Timer Starts 
-	while (gamestate.bRunning())
+	while (gamestate.bRunning()) // While the windows is open. 
 	{
 		// Update 
 		gamestate.update();

@@ -12,6 +12,7 @@
 
 #include "WindowScreen.h"
 #include "Tetrisbox.h"
+#include <chrono> 
 #include <iostream>
 //Private 
 void WindowScreen::InitalizeVariables()
@@ -91,3 +92,5 @@ void WindowScreen::render()
 	//Draw game objects 
 	this->window->display();
 }
+
+
