@@ -147,7 +147,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="WindowScreen.cpp" />
     <ClCompile Include="Header.h" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PlayerControl.cpp" />
@@ -170,7 +170,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClInclude>
-    <ClInclude Include="GameState.h" />
+    <ClInclude Include="WindowScreen.h" />
     <ClInclude Include="PlayerControl.h" />
     <ClInclude Include="Teto.h" />
     <ClInclude Include="Tetrisbox.h" />

@@ -10,7 +10,7 @@
 // DESC : 
 
 #pragma once 
-#include "GameState.h"
+#include "WindowScreen.h"
 class Tetrisbox
 {
 private:

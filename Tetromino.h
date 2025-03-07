@@ -10,7 +10,7 @@
 // DESC : 
 
 #pragma once
-#include "GameState.h"
+#include "WindowScreen.h"
 #include <vector>
 #include "TetromioShapes.h"
 

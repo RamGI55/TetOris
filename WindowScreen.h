@@ -1,7 +1,7 @@
 
 // -------------------------------------------	//
 //	Project : TetOris							//
-//	Name : GameState.h							//
+//	Name : WindowScreen.h						//
 //	Written by : Ram (Hyunsoo Park)				//
 //	Generated Date : Feb 05, 2025				//
 //	Latest Modify : 							//
@@ -15,7 +15,7 @@
 #include "Header.h"
 
 class Tetrisbox; 
-class GameState
+class WindowScreen
 {
 private:
 	// Variables
@@ -35,8 +35,8 @@ public:
 
 
 	//Constructors/ Destructors/ 
-	GameState();
-	virtual ~GameState();
+	WindowScreen();
+	virtual ~WindowScreen();
 	//Accessors 
 	const bool bRunning() const; 
 

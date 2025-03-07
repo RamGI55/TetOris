@@ -15,12 +15,12 @@
 
 #include <iostream>
 #include "Timer.h"
-#include "GameState.h"
+#include "WindowScreen.h"
 
 int main()
 {
 	//init Game engine 
-	GameState gamestate;
+	WindowScreen gamestate;
 	/*sf::Event event;*/
 	Timer time;
 	//Timer Starts 

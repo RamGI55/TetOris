@@ -36,7 +36,6 @@ Tetrisbox::Tetrisbox(sf::RenderWindow* window)
 Tetrisbox::~Tetrisbox()
 {
 	delete tetrisboxes; 
-	delete window;
 }
 
 const bool Tetrisbox::bTetrisBoxOpen() const

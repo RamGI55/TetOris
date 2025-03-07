@@ -2,7 +2,7 @@
 
 // -------------------------------------------	//
 //	Project : TetOris							//
-//	Name : GameState.cpp						//
+//	Name : WindowScreen.cpp						//
 //	Written by : Ram (Hyunsoo Park)				//
 //	Generated Date : Feb 05, 2025				//
 //	Latest Modify : 							//
@@ -10,17 +10,17 @@
 
 // DESC : 
 
-#include "GameState.h"
+#include "WindowScreen.h"
 #include "Tetrisbox.h"
 #include <iostream>
 //Private 
-void GameState::InitalizeVariables()
+void WindowScreen::InitalizeVariables()
 {
 	this->window = nullptr; 
 	this->tbox = nullptr; 
 }
 
-void GameState::IntiWindow()
+void WindowScreen::IntiWindow()
 {
 	this->videomode.size = {Width, Height};
 	this->window = new sf::RenderWindow(sf::VideoMode(this->videomode.size), "T E T O R I S", sf::Style::Titlebar | sf::Style::Close);
@@ -28,19 +28,19 @@ void GameState::IntiWindow()
 }
 
 // Constructors 
-GameState::GameState()
+WindowScreen::WindowScreen()
 {
 	this->InitalizeVariables();
 	this->IntiWindow();
 
 }
 // Deconstructors
-GameState::~GameState()
+WindowScreen::~WindowScreen()
 {
 	delete this->window;
 	delete this->tbox;
 }
-const bool GameState::bRunning() const
+const bool WindowScreen::bRunning() const
 {
 	return this->window->isOpen(); 
 }
@@ -48,7 +48,7 @@ const bool GameState::bRunning() const
 
 //Function 
 
-void GameState::pollEvents()
+void WindowScreen::pollEvents()
 {
 	while (const std::optional event = window->pollEvent())
 	{
@@ -64,12 +64,12 @@ void GameState::pollEvents()
 	}
 }
 
-void GameState::update()
+void WindowScreen::update()
 {
 	this->pollEvents();
 }
 
-void GameState::render()
+void WindowScreen::render()
 {
 	/*
 	* clear oldframe 
@@ -78,13 +78,13 @@ void GameState::render()
 	Renders the game object.
 	*/
 	const sf::Texture texture("Teto.png");
-	sf::Sprite sprite(texture);
+	sf::Sprite TetoSprite(texture);
 	//sprite.setPosition({ Width/2, Height/2 }); // need narrowing conversion 
-	sprite.setPosition({ 950.f, 350.f });
+	TetoSprite.setPosition({ 950.f, 350.f });
 	this->window->clear(sf::Color(255, 217, 85, 255)); // (R, G, B, Alpha) 
 	
 	//Draw the Teto
-	this->window->draw(sprite);
+	this->window->draw(TetoSprite);
 
 	tbox->GetTetrisBox(); // nullptr error 
 
