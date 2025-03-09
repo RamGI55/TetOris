@@ -7,7 +7,7 @@
 //	Latest Modify : 							//
 // -------------------------------------------  //
 
-// DESC : 
+// DESC : Manages rendering using SFML.
 
 
 #pragma once

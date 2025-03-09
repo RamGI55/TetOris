@@ -4,20 +4,18 @@
 //	Name : Tetrisbox.cpp						//
 //	Written by : Ram (Hyunsoo Park)				//
 //	Generated Date : Feb 05, 2025				//
-//	Latest Modify : 							//
+//	Latest Modify : Mar 10, 2025				//
 // -------------------------------------------  //
 
 // DESC :
-
-
 
 #include "Tetrisbox.h"
 #include <iostream>
 
 void Tetrisbox::InitVariables()
 {
-	this->tetrisboxes = nullptr; 
-	this->window = nullptr;
+	 this->tetrisboxes = nullptr; 
+	// this->window = nullptr;
 }
 
 void Tetrisbox::InitTetrisbox()
@@ -27,9 +25,9 @@ void Tetrisbox::InitTetrisbox()
 // vecotr2f 
 
 Tetrisbox::Tetrisbox(sf::RenderWindow* window)
+	:window(window), tetrisboxes(nullptr), matrix(Columns, std::vector<unsigned char>(Rows, 0)), clearline (Rows, false)
 {
 	this->InitVariables();
-	this->window = window;
 	this->InitTetrisbox();
 }
 
@@ -57,6 +55,8 @@ float Tetrisbox::GetRows() const
 	return Rows;
 }
 
+
+
 void Tetrisbox::GetTetrisBox()
 {
 	if (!window || !tetrisboxes)
@@ -75,18 +75,54 @@ void Tetrisbox::GetTetrisBox()
 	}
 }
 
-void Tetrisbox::FillTheColour()
+unsigned char Tetrisbox::GetCell(unsigned char x, unsigned char y)
 {
-	for (unsigned char a = 0; a < Columns; a++)
-	{
-		for (unsigned char b = 0; b < Rows; b++)
-		{
-			tetrisboxes->setFillColor(sf::Color::Red);
-			tetrisboxes->setPosition(sf::Vector2f(static_cast<float>(BoxParameter * a), static_cast<float>(BoxParameter * b)));
-			tetrisboxes->setSize(sf::Vector2f(BoxParameter -1, BoxParameter-1 ));
+	return matrix[x][y];
+}
 
-			window->draw(*tetrisboxes);
+void Tetrisbox::SetCell(unsigned char x, unsigned char y, unsigned char value)
+{
+	matrix[x][y] = value;
+}
+
+bool Tetrisbox::isClearLine(unsigned y) const
+{
+	return clearline[y];
+}
+
+void Tetrisbox::SetClearLine(unsigned y, bool value)
+{
+	clearline[y] = value;
+}
+
+void Tetrisbox::ClearLines()
+{
+	for (unsigned char a = 0; a < Rows; a++)
+	{
+		if (clearline[a])
+		{
+			for (unsigned char b = 0; b < Columns; b++)
+			{
+				matrix[b][a] = 0;
+				for (unsigned char c = a; c > 0; c--)
+				{
+					matrix[b][c] = matrix[b][c - 1];
+					matrix[b][c - 1] = 0;
+				}
+			}
+			clearline[a] = false;
 		}
 	}
-	
 }
+
+void Tetrisbox::Clear()
+{
+	for (auto& Column: matrix)
+	{
+		std::fill(Column.begin(), Column.end(), 0);
+	}
+	std::fill(clearline.begin(), clearline.end(), false);
+}
+
+
+

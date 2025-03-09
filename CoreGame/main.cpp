@@ -1,4 +1,4 @@
-
+﻿
 // -------------------------------------------	//
 //	Project : TetOris							//
 //	Name : main.cpp								//
@@ -7,11 +7,12 @@
 //	Latest Modify : Mar 06, 2025				//
 // -------------------------------------------  //
 
-// DESC :
+// DESC : Managing overall game loop and state transitions
 
 // RULES : DO NOT USE namespace, it possibly collided to the sfml library namespaces in the worst case.
 //		   Using std::cout for debuging is okay, do not nessersary make the console window for the debuging.
 //		   Make sure the SFML-3.0 .dll files in the project, need non debuging .dll files w/o -d once it need to be released. 
+
 
 #include <iostream>
 #include "Timer.h"

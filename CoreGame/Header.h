@@ -1,35 +1,29 @@
 
+
 // -------------------------------------------	//
 //	Project : TetOris							//
-//	Name : BaseInput.h							//
+//	Name : Header.h								//
 //	Written by : Ram (Hyunsoo Park)				//
 //	Generated Date : Feb 05, 2025				//
 //	Latest Modify : 							//
 // -------------------------------------------  //
 
-// DESC : 
+// DESC : Core minimum headers to run the game. 
 
-#pragma once
-
+#pragma once 
+#include <Windows.h>
 #include <SFML/Window.hpp>
+#include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include <SFML/Network.hpp>
+#include <math.h>
+#include <iostream>
 
-#include "Tetrisbox.h"
+//delta time in the Header.h? if I'd like to use the animation on the menu. 
 
-class BaseInput
+struct Position
 {
-private:
-	
-public: 
-	bool bGamepadConnected();
-	int MoveUp();
-	int MoveRight(); 
-	bool bPressSpacebar(); 
-	bool bPressSwitch();
-	void click();
-	Tetrisbox* Tetrisbox;
-
-
+	char x;
+	char y; 
 };
-

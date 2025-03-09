@@ -10,7 +10,7 @@
 // DESC : brought teterimono shape information
 
 #include <vector>
-#include "Header.h"
+#include "../CoreGame/Header.h"
 #include "TetromioShapes.h"
 
 // get vector2 variable for the vector. 

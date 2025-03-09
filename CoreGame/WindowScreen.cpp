@@ -11,7 +11,7 @@
 // DESC : 
 
 #include "WindowScreen.h"
-#include "Tetrisbox.h"
+#include "../GameLogic/Tetrisbox.h"
 #include <chrono> 
 #include <iostream>
 //Private 
