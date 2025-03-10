@@ -27,6 +27,8 @@ public:
     void Render();
     void spawnTetromino(); 
     void ResetGame();
+    Tetromino tetromino;
+    Tetrisbox tetrisbox;
 
 private:
     sf::RenderWindow window; 
@@ -34,8 +36,7 @@ private:
     std:: default_random_engine RandomEngine;
     std::uniform_int_distribution<unsigned short> ShapeDistribution;
 
-    Tetromino tetromino;
-    Tetrisbox tetrisbox;
+   
     WindowScreen windowscreen;
     static sf::Clock clock; 
     Timer timer; 

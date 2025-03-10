@@ -22,6 +22,8 @@
 
 //delta time in the Header.h? if I'd like to use the animation on the menu. 
 
+constexpr unsigned char SOFT_DROP_SPEED = 1;
+constexpr unsigned char MOVE_SPEED = 2;
 struct Position
 {
 	char x;

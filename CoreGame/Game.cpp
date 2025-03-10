@@ -13,7 +13,8 @@
 #include <SFML/System.hpp>
 
 Game::Game()
-{
+    
+{   // need the constructor list here 
     // Make the game loop in here.
     
 }

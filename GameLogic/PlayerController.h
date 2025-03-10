@@ -22,12 +22,16 @@ public:
     void update(Tetromino& tetromino, Tetrisbox& tetrisbox);
     void HandleKeyRelase(sf::Keyboard::Key key);
 
+    
 private:
     BaseInput& input;
     bool rotatepressed;
     bool harddroppressed;
     unsigned char movetimer;
-    unsigned char softdroptimer; 
+    unsigned char softdroptimer;
+
+    // Move to the header if those have the problem. 
+   
     
 };
 

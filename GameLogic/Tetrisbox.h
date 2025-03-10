@@ -8,7 +8,7 @@
 // -------------------------------------------  //
 
 // DESC : what the fuck is any difference between tetobox and matrix??
-//      chatgpt tell me I can access the box of the matrix with unsigned char.. I am quite doubt about that though...
+//      
 
 #pragma once
 
@@ -38,7 +38,7 @@ public:
     void SetClearLine(unsigned y, bool value);
     void ClearLines();
     void Clear(); 
-    
+    std::vector<std::vector<unsigned char>> matrix; // must be accessible for the input mechanism.
 
     // Functions
     void GetTetrisBox();
@@ -51,6 +51,6 @@ private:
     float Rows = 20.0f;
     sf::RectangleShape* tetrisboxes; 
     sf::RenderWindow *window;
-    std::vector<std::vector<unsigned char>> matrix;
+   
     std::vector<bool> clearline;
 };
