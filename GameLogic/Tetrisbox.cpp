@@ -7,14 +7,14 @@
 //	Latest Modify : Mar 10, 2025				//
 // -------------------------------------------  //
 
-// DESC :
+// DESC : 
 
 #include "Tetrisbox.h"
 #include <iostream>
 
 void Tetrisbox::InitVariables()
 {
-	 this->tetrisboxes = nullptr; 
+	this->tetrisboxes = nullptr; 
 	// this->window = nullptr;
 }
 
@@ -55,8 +55,6 @@ float Tetrisbox::GetRows() const
 	return Rows;
 }
 
-
-
 void Tetrisbox::GetTetrisBox()
 {
 	if (!window || !tetrisboxes)
@@ -67,9 +65,8 @@ void Tetrisbox::GetTetrisBox()
 	{
 		for (unsigned char b = 0; b < Rows; b++)
 		{
-			this->tetrisboxes->setPosition(sf::Vector2f(((BoxParameter* Multiplier) * a + 450), ((BoxParameter * Multiplier) * b+ 150)));
-
-
+			this->tetrisboxes->setPosition(sf::Vector2f(((BoxParameter* Multiplier) * a + 450), ((BoxParameter * Multiplier) * b + 150)));
+			
 			this->window->draw(*tetrisboxes);
 		}
 	}

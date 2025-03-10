@@ -23,10 +23,11 @@ private:
 	
 public: 
 	bool bGamepadConnected();
-	int MoveUp();
-	int MoveRight(); 
+	int getVerticalMovement();
+	int getHorizontalMovement(); 
 	bool bPressSpacebar(); 
-	bool bPressSwitch();
+	bool bRightSwitch();
+	bool bLeftSwitch();
 	Tetrisbox* Tetrisbox;
 
 

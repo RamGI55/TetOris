@@ -1,5 +1,4 @@
 
-
 // -------------------------------------------	//
 //	Project : TetOris							//
 //	Name : WindowScreen.cpp						//
@@ -8,7 +7,7 @@
 //	Latest Modify : 							//
 // -------------------------------------------  //
 
-// DESC : 
+// DESC : I am so stupid I put delete tetobox function on the windowscreen. 
 
 #include "WindowScreen.h"
 #include "../GameLogic/Tetrisbox.h"
@@ -18,7 +17,7 @@
 void WindowScreen::InitalizeVariables()
 {
 	this->window = nullptr; 
-	this->tbox = nullptr; 
+	
 }
 
 void WindowScreen::IntiWindow()
@@ -39,7 +38,6 @@ WindowScreen::WindowScreen()
 WindowScreen::~WindowScreen()
 {
 	delete this->window;
-	delete this->tbox;
 }
 const bool WindowScreen::bRunning() const
 {

@@ -457,7 +457,7 @@
       <AdditionalIncludeDirectories>C:\SFML-3.0.0\include;E:\vcpkg\installed\x86-windows\include</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
-    <ClCompile Include="GameLogic\PlayerControl.cpp">
+    <ClCompile Include="GameLogic\PlayerController.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <Optimization>Disabled</Optimization>
@@ -1006,7 +1006,7 @@
       <ExcludedFromBuild>false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="CoreGame\WindowScreen.h" />
-    <ClInclude Include="GameLogic\PlayerControl.h" />
+    <ClInclude Include="GameLogic\PlayerController.h" />
     <ClInclude Include="GameLogic\ScoreBoard.h" />
     <ClInclude Include="GameLogic\Teto.h" />
     <ClInclude Include="GameLogic\Tetrisbox.h" />

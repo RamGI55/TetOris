@@ -13,8 +13,6 @@ private:
 
 
 public: 
-	
-
 	//Teto 
 		// spining 
 	//Teto Status

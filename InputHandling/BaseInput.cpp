@@ -20,61 +20,52 @@
 
 bool BaseInput::bGamepadConnected()
 {
-	if (sf::Joystick::isConnected(0)) // this index count works as how many people connected.
-	{
-		std::cout << "GamePad Connected" << std::endl;
-		return true; 
-	}
-	return false;
+	return sf::Joystick::isConnected(0); 
 }
 
-int BaseInput::MoveUp()
+int BaseInput::getVerticalMovement()
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
 	{
 		std::cout << "Moving Up" << std::endl;
 		return 1;
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
 	{
 		std::cout << "Moving Down" << std::endl;
 		return -1;
 	}
+	return 0; 
 }
-int BaseInput::MoveRight()
+int BaseInput::getHorizontalMovement()
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
 	{
 		std::cout << "Moving Right" << std::endl;
 		return 1;
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
 	{
 		std::cout << "Moving Left" << std::endl;
 		return -1;
 	}
-
+	return 0; 
 }
 
 bool BaseInput::bPressSpacebar()
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space))
-	{
-		std::cout << "Pressing Spacebar" << std::endl;
-		return true; 
-	}
-	return false;
+	return sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space);
 }
 
-bool BaseInput::bPressSwitch()
+bool BaseInput::bRightSwitch()
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::RShift))
-	{
-		std::cout << "Pressing Switch" << std::endl;
-		return true; 
-	}
-	return false; 
+	return sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Z);
+}
+
+bool BaseInput::bLeftSwitch()
+{
+	return sf::Keyboard::isKeyPressed(sf::Keyboard::Key::C);
 }
 
 
