@@ -10,6 +10,7 @@
 // DESC : 
 
 #pragma once
+#include "../CoreGame/Header.h"
 #include "../CoreGame/WindowScreen.h"
 #include <vector>
 #include "TetromioShapes.h"
@@ -28,7 +29,7 @@ private:
 	
 public: 
 	// Constructors
-	Tetromino(unsigned char iShape, const std::vector<std::vector<unsigned char>>& iMatrix , Tetrisbox* tetrisbox);
+	Tetromino(unsigned char iShape, const std::vector<std::vector<unsigned char>>&i_matrix);
 	// Check the SF-003 Note. 
 
 	// Destructors 

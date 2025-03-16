@@ -13,8 +13,8 @@
 
 #include "Tetromino.h"
 #include "Tetrisbox.h"
-Tetromino::Tetromino(unsigned char iShape, const std::vector<std::vector<unsigned char>>& iMatrix, Tetrisbox* tetrisbox)
-	: rotation(0), shape(iShape), tetrisbox (tetrisbox), minos(tetromioShapes(iShape, tetrisbox->GetColumns() / 2, 1))
+Tetromino::Tetromino(unsigned char iShape, const std::vector<std::vector<unsigned char>>&i_matrix)
+	: rotation(0), shape(iShape), tetrisbox (tetrisbox), minos(tetromioShapes(iShape,DEFAULT_COLUMNS / 2, 1))
 {
 }
 
@@ -83,6 +83,22 @@ std::vector<Position> Tetromino::GetMinos()
 void Tetromino::FlipTetromino()
 {
 
+}
+
+bool Tetromino::Reset(unsigned char i_shape, const std::vector<std::vector<unsigned char>>& iMatrix)
+{
+	rotation = 0;
+	shape = i_shape;
+	minos = tetromioShapes(shape, tetrisbox->GetColumns()/2 , 1 ) ;
+
+	for (Position& mino : minos)
+	{
+		if (0 <iMatrix [ mino.x][mino.y])
+		{
+			return 0; 
+		}
+	}
+	return 1; 
 }
 
 // you should think to bring delta time on the movement cause it would works varies by the speed of computer. 

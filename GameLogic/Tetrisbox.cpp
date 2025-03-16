@@ -4,7 +4,7 @@
 //	Name : Tetrisbox.cpp						//
 //	Written by : Ram (Hyunsoo Park)				//
 //	Generated Date : Feb 05, 2025				//
-//	Latest Modify : Mar 10, 2025				//
+//	Latest Modify : Mar 16, 2025				//
 // -------------------------------------------  //
 
 // DESC : 
@@ -15,7 +15,8 @@
 void Tetrisbox::InitVariables()
 {
 	this->tetrisboxes = nullptr; 
-	// this->window = nullptr;
+	std::cout << "Tetrisbox variables initialized. Columns: " << Columns << ", Rows: " << Rows << std::endl;
+
 }
 
 void Tetrisbox::InitTetrisbox()
@@ -25,11 +26,28 @@ void Tetrisbox::InitTetrisbox()
 // vecotr2f 
 
 Tetrisbox::Tetrisbox(sf::RenderWindow* window)
-	:window(window), tetrisboxes(nullptr), matrix(Columns, std::vector<unsigned char>(Rows, 0)), clearline (Rows, false)
+	:window(window), tetrisboxes(nullptr), Columns (DEFAULT_COLUMNS), Rows(DEFAULT_ROWS),
+	matrix(DEFAULT_COLUMNS, std::vector<unsigned char>(DEFAULT_ROWS, 0)), clearline (DEFAULT_COLUMNS, false),
+	CellColors({
+	sf::Color (36,36,85),
+	sf::Color(0, 219, 255),
+	sf::Color(0, 36,255),
+	sf::Color (255, 146, 0),
+	sf::Color (255, 291, 0 ),
+	sf::Color( 0, 219, 0),
+	sf::Color (146, 0 , 255),
+	sf::Color(219,0,0),
+	sf::Color (73,73,85)})
 {
-	this->InitVariables();
+	if (!window)
+	{
+		std::cerr << "Window creation failed!" << std::endl;
+	}
+
+	std::cout << "Initializing Tetrisbox with Columns=" << Columns << ", Rows=" << Rows << std::endl;
 	this->InitTetrisbox();
 }
+
 
 Tetrisbox::~Tetrisbox()
 {
@@ -55,8 +73,36 @@ float Tetrisbox::GetRows() const
 	return Rows;
 }
 
+void Tetrisbox::SetColums(unsigned int iColumns)
+{
+	Columns = iColumns;
+	matrix.resize(iColumns);
+	for (auto& row : matrix)
+	{
+		row.resize(iColumns);
+	}
+	clearline.resize(iColumns);
+}
+
+void Tetrisbox::SetRows(unsigned int iRows)
+{
+	Rows = iRows;
+	matrix.resize(iRows);
+	for (auto& row : matrix)
+	{
+		row.resize(iRows);
+	}
+	clearline.resize(iRows);
+}
+
+const std::vector<sf::Color>& Tetrisbox::GetCellColours()
+{
+	return CellColors; 
+}
+
 void Tetrisbox::GetTetrisBox()
 {
+	// Cannot get the tetrisboxes. 
 	if (!window || !tetrisboxes)
 	{
 		 std::cout << "Unable to generate the tetrisbox." << std::endl; 

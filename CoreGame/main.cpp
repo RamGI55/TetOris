@@ -15,24 +15,20 @@
 
 
 #include <iostream>
+
+#include "Game.h"
 #include "Timer.h"
 #include "WindowScreen.h"
 
 int main()
 {
 	//init Game engine 
-	WindowScreen gamestate;
 	/*sf::Event event;*/
+	Game game; 
 	Timer time;
-	//Timer Starts 
-	while (gamestate.bRunning()) // While the windows is open. 
-	{
-		// Update 
-		gamestate.update();
-
-		// Render 
-		gamestate.render();
-	}
+	//Timer Starts
+	
+	game.Run(); 
 
 	// End of application.
 }

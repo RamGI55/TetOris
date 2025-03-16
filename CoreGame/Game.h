@@ -16,15 +16,14 @@
 #include "../GameLogic/Tetromino.h"
 #include "../GameLogic/Tetrisbox.h"
 #include "../CoreGame/Timer.h"
+#include "../GameLogic/PlayerController.h"
 
 class Game
 {
 public:
     Game();
     void Run();
-    void ProcessEvents();
-    void Update();
-    void Render();
+    // void Update();
     void spawnTetromino(); 
     void ResetGame();
     Tetromino tetromino;
@@ -33,17 +32,17 @@ public:
 private:
     sf::RenderWindow window; 
     sf::Event event;
-    std:: default_random_engine RandomEngine;
+    std::default_random_engine RandomEngine;
     std::uniform_int_distribution<unsigned short> ShapeDistribution;
 
-   
+    PlayerController controller;
     WindowScreen windowscreen;
-    static sf::Clock clock; 
+    BaseInput input;
+   
     Timer timer; 
 
     // gamestate variables, is that transfer to the gamestate after? 
     unsigned char NextShape;
-    static sf::Time lag;
     unsigned linescleared;
     unsigned char cleareffecttimer;
     unsigned char currentfallspeed;
@@ -54,8 +53,6 @@ private:
     bool gameover;
     bool harddroppressed;
     bool rotatepressed; 
-
-    
     
     
 };

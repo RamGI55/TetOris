@@ -24,6 +24,8 @@
 
 constexpr unsigned char SOFT_DROP_SPEED = 1;
 constexpr unsigned char MOVE_SPEED = 2;
+const unsigned int DEFAULT_COLUMNS = 10;
+const unsigned int DEFAULT_ROWS = 20;
 struct Position
 {
 	char x;

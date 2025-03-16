@@ -13,6 +13,7 @@
 #include "../GameLogic/Tetrisbox.h"
 #include <chrono> 
 #include <iostream>
+#include "../GameLogic/PlayerController.h"
 //Private 
 void WindowScreen::InitalizeVariables()
 {
@@ -24,7 +25,7 @@ void WindowScreen::IntiWindow()
 {
 	this->videomode.size = {Width, Height};
 	this->window = new sf::RenderWindow(sf::VideoMode(this->videomode.size), "T E T O R I S", sf::Style::Titlebar | sf::Style::Close);
-	this->tbox = new Tetrisbox(this->window); 
+	// this->tbox = new Tetrisbox(this->window); 
 }
 
 // Constructors 
@@ -65,17 +66,28 @@ void WindowScreen::pollEvents()
 
 void WindowScreen::update()
 {
-	this->pollEvents();
+	static const sf::Time FRAME_DURATION = sf::seconds(1.f /60.f); // 60 frame per second.
+	// sfml 3.0 doesn't have any frameduration but need to set the frame rate manually.
+	// Set the timer (it is very important)
+	sf::Time deltatime = clock.restart();
+	lag += deltatime;
+	
+	while (FRAME_DURATION <= lag)
+	{
+		lag -= FRAME_DURATION;
+		// playercontroller->update(tetromino, tbox); 
+		
+	}
 }
 
 void WindowScreen::render()
 {
 	/*
-	* clear oldframe 
 	* render objects 
 	* display frame in window. 
 	Renders the game object.
 	*/
+	
 	const sf::Texture texture("Teto.png");
 	sf::Sprite TetoSprite(texture);
 	//sprite.setPosition({ Width/2, Height/2 }); // need narrowing conversion 
@@ -91,4 +103,5 @@ void WindowScreen::render()
 	this->window->display();
 }
 
-
+sf::Clock WindowScreen::clock;
+sf::Time WindowScreen::lag; 

@@ -14,7 +14,9 @@
 
 #include "Header.h"
 
-class Tetrisbox; 
+class Tetrisbox;
+class PlayerController;
+class Tetromino; 
 class WindowScreen
 {
 private:
@@ -25,6 +27,8 @@ private:
 	sf::RenderWindow* window;
 	sf::VideoMode videomode;
 	Tetrisbox* tbox;
+	Tetromino* tetromino; 
+	PlayerController* playercontroller; 
 	/*sf::Event event;*/
 
 
@@ -46,4 +50,8 @@ public:
 	void update();
 	// Render must be refactored to other class -> if you'd like to make a menu. 
 	void render();
+
+private:
+	static sf::Clock clock;
+	static sf::Time lag;
 };
