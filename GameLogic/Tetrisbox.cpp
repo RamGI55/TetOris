@@ -14,20 +14,28 @@
 
 void Tetrisbox::InitVariables()
 {
-	this->tetrisboxes = nullptr; 
+	 
 	std::cout << "Tetrisbox variables initialized. Columns: " << Columns << ", Rows: " << Rows << std::endl;
-
+	tetrisboxes = nullptr; 
 }
 
 void Tetrisbox::InitTetrisbox()
 {
     this->tetrisboxes = new sf::RectangleShape(sf::Vector2f((BoxParameter * Multiplier) - 3, (BoxParameter * Multiplier) - 3));
+	if (this->tetrisboxes == nullptr) {
+		std::cerr << "Error: tetrisboxes is null after creation." << std::endl;
+	} else {
+		std::cout << "Tetrisboxes created successfully." << std::endl;
+	}
 }
 // vecotr2f 
 
 Tetrisbox::Tetrisbox(sf::RenderWindow* window)
-	:window(window), tetrisboxes(nullptr), Columns (DEFAULT_COLUMNS), Rows(DEFAULT_ROWS),
-	matrix(DEFAULT_COLUMNS, std::vector<unsigned char>(DEFAULT_ROWS, 0)), clearline (DEFAULT_COLUMNS, false),
+	:window(window),
+	tetrisboxes(nullptr),
+	Columns (DEFAULT_COLUMNS), Rows(DEFAULT_ROWS),
+	matrix(DEFAULT_COLUMNS, std::vector<unsigned char>(DEFAULT_ROWS, 0)),
+	clearline (DEFAULT_ROWS, false),
 	CellColors({
 	sf::Color (36,36,85),
 	sf::Color(0, 219, 255),
@@ -39,13 +47,15 @@ Tetrisbox::Tetrisbox(sf::RenderWindow* window)
 	sf::Color(219,0,0),
 	sf::Color (73,73,85)})
 {
-	if (!window)
-	{
-		std::cerr << "Window creation failed!" << std::endl;
-	}
-
-	std::cout << "Initializing Tetrisbox with Columns=" << Columns << ", Rows=" << Rows << std::endl;
+	this->InitVariables(); 
 	this->InitTetrisbox();
+	if (this->window == nullptr) {
+		std::cerr << "Error: window is null in constructor." << std::endl;
+	} else {
+		std::cout << "Window initialized successfully." << std::endl;
+	}
+	
+
 }
 
 
@@ -102,6 +112,12 @@ const std::vector<sf::Color>& Tetrisbox::GetCellColours()
 
 void Tetrisbox::GetTetrisBox()
 {
+	if (!window) {
+		std::cerr << "Error: window is null in GetTetrisBox." << std::endl;
+	}
+	if (!tetrisboxes) {
+		std::cerr << "Error: tetrisboxes is null in GetTetrisBox." << std::endl;
+	}
 	// Cannot get the tetrisboxes. 
 	if (!window || !tetrisboxes)
 	{

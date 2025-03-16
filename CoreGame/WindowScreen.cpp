@@ -17,24 +17,18 @@
 //Private 
 void WindowScreen::InitalizeVariables()
 {
-	this->window = nullptr; 
 	
-}
-
-void WindowScreen::IntiWindow()
-{
 	this->videomode.size = {Width, Height};
 	this->window = new sf::RenderWindow(sf::VideoMode(this->videomode.size), "T E T O R I S", sf::Style::Titlebar | sf::Style::Close);
-	// this->tbox = new Tetrisbox(this->window); 
 }
 
 // Constructors 
 WindowScreen::WindowScreen()
 {
 	this->InitalizeVariables();
-	this->IntiWindow();
-
+	tbox = new Tetrisbox(window);
 }
+
 // Deconstructors
 WindowScreen::~WindowScreen()
 {
@@ -75,7 +69,7 @@ void WindowScreen::update()
 	while (FRAME_DURATION <= lag)
 	{
 		lag -= FRAME_DURATION;
-		// playercontroller->update(tetromino, tbox); 
+		// playercontroller->update(tetromino, tbox);
 		
 	}
 }
@@ -87,7 +81,8 @@ void WindowScreen::render()
 	* display frame in window. 
 	Renders the game object.
 	*/
-	
+
+	// TODO: this will be in the teto class. 
 	const sf::Texture texture("Teto.png");
 	sf::Sprite TetoSprite(texture);
 	//sprite.setPosition({ Width/2, Height/2 }); // need narrowing conversion 
@@ -97,8 +92,15 @@ void WindowScreen::render()
 	//Draw the Teto
 	this->window->draw(TetoSprite);
 
-	tbox->GetTetrisBox(); // nullptr error 
-
+	// Draw the Tetrisbox. 
+	if (this->tbox == nullptr) {
+		std::cerr << "Error: tbox is null in render." << std::endl;
+	}
+	else
+	{
+		tbox->GetTetrisBox(); // nullptr error
+	}
+	
 	//Draw game objects 
 	this->window->display();
 }

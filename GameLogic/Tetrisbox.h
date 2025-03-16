@@ -28,7 +28,7 @@ private:
     void InitVariables(); 
     void InitTetrisbox();
     sf::RectangleShape* tetrisboxes; 
-    sf::RenderWindow *window;
+    sf::RenderWindow* window;
     std::vector<bool> clearline;
     std::vector<sf::Color> CellColors; 
 

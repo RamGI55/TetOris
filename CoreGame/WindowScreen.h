@@ -34,17 +34,14 @@ private:
 
 	//Private Functions 
 	void InitalizeVariables(); 
-	void IntiWindow(); 
+
 public: 
-
-
 	//Constructors/ Destructors/ 
 	WindowScreen();
 	virtual ~WindowScreen();
 	//Accessors 
 	const bool bRunning() const; 
-
-
+	
 	//Function 
 	void pollEvents();
 	void update();

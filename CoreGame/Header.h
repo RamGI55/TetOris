@@ -22,10 +22,13 @@
 
 //delta time in the Header.h? if I'd like to use the animation on the menu. 
 
+// TODO:: put those inital values to the right spot, other than header. 
 constexpr unsigned char SOFT_DROP_SPEED = 1;
 constexpr unsigned char MOVE_SPEED = 2;
+
 const unsigned int DEFAULT_COLUMNS = 10;
 const unsigned int DEFAULT_ROWS = 20;
+
 struct Position
 {
 	char x;
