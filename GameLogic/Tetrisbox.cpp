@@ -12,13 +12,6 @@
 #include "Tetrisbox.h"
 #include <iostream>
 
-void Tetrisbox::InitVariables()
-{
-	 
-	std::cout << "Tetrisbox variables initialized. Columns: " << Columns << ", Rows: " << Rows << std::endl;
-	tetrisboxes = nullptr; 
-}
-
 void Tetrisbox::InitTetrisbox()
 {
     this->tetrisboxes = new sf::RectangleShape(sf::Vector2f((BoxParameter * Multiplier) - 3, (BoxParameter * Multiplier) - 3));
@@ -46,8 +39,7 @@ Tetrisbox::Tetrisbox(sf::RenderWindow* window)
 	sf::Color (146, 0 , 255),
 	sf::Color(219,0,0),
 	sf::Color (73,73,85)})
-{
-	this->InitVariables(); 
+{ 
 	this->InitTetrisbox();
 	if (this->window == nullptr) {
 		std::cerr << "Error: window is null in constructor." << std::endl;
@@ -55,7 +47,6 @@ Tetrisbox::Tetrisbox(sf::RenderWindow* window)
 		std::cout << "Window initialized successfully." << std::endl;
 	}
 	
-
 }
 
 
@@ -129,7 +120,7 @@ void Tetrisbox::GetTetrisBox()
 		{
 			this->tetrisboxes->setPosition(sf::Vector2f(((BoxParameter* Multiplier) * a + 450), ((BoxParameter * Multiplier) * b + 150)));
 			
-			this->window->draw(*tetrisboxes);
+ 			this->window->draw(*tetrisboxes);
 		}
 	}
 }

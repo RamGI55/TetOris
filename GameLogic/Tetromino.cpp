@@ -40,7 +40,7 @@ void Tetromino::UpdateMatrix(std::vector<std::vector<unsigned char>>& iMatrix)
 		}
 }
 
-std::vector<Position> Tetromino::GetGhostMinos(std::vector<std::vector<unsigned char>> iMatrix)
+std::vector<Position> Tetromino::GetGhostMinos(std::vector<std::vector<unsigned char>>& iMatrix)
 {
 	bool KeepFailling = true;
 	unsigned char TotalMovement = 0;

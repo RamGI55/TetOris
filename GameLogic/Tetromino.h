@@ -40,7 +40,7 @@ public:
 	void UpdateMatrix(std::vector<std::vector<unsigned char>>& iMatrix);
 
 	// minos and ghost minos. 
-	std::vector <Position> GetGhostMinos(std::vector<std::vector<unsigned char>> iMatrix);
+	std::vector <Position> GetGhostMinos(std::vector<std::vector<unsigned char>>& iMatrix);
 	std::vector <Position> GetMinos(); 
 
 	// Functions

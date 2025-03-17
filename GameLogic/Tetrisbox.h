@@ -25,7 +25,6 @@ class Tetrisbox
 private:
   
     // initiate tetris box 
-    void InitVariables(); 
     void InitTetrisbox();
     sf::RectangleShape* tetrisboxes; 
     sf::RenderWindow* window;
